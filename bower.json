@@ -1,0 +1,28 @@
+{
+  "name": "polymer-ckeditor5",
+  "description": "Paper style ckeditor input type",
+  "main": "polymer-ckeditor5.html",
+  "version": "1.0.0",
+  "authors": [
+    "Chris Kelley"
+  ],
+  "homepage": "github.com/chrisekelley/polymer-ckeditor5/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chrisekelley/polymer-ckeditor5.git"
+  },
+  "keywords": [
+    "web-components",
+    "web-component",
+    "polymer",
+    "ckeditor"
+  ],
+  "dependencies": {
+    "ckeditor": "#standard/stable",
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  }
+}

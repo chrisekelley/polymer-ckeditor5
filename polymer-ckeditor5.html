@@ -1,0 +1,72 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<script src="../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+
+<!--
+`polymer-ckeditor5`
+ckeditor5 input type
+
+@demo demo/index.html
+-->
+
+<dom-module id="polymer-ckeditor5">
+  <link rel="import" type="css" href="dist/styles.css">
+  <template>
+
+    <textarea
+      id="editor"
+      rows="{{rows}}"
+      class$="{{ _updateClass(error, mono) }}"
+      placeholder="{{placeholder}}"
+      value="{{value::input}}"
+      maxlength$="{{maxlength}}"
+      disabled="{{disabled}}"
+      style$="{{ _updateStyle(width, height, fitparent) }}"></textarea>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'polymer-ckeditor5',
+
+      properties: {
+      },
+
+      /**
+       *  Initialize editor to replace textarea. Please note that this method will automatically be called upon load.
+       */
+      initializeEditor: function() {
+        var config = this.config || {};
+        if(typeof config === 'string') {
+          config = JSON.parse(config);
+        }
+        ClassicEditor
+          .create( this.$.editor )
+          .then( editor => {
+          this._editor = editor;
+          console.log( editor );
+        this._editor = editor;
+      } )
+      .catch( error => {
+          console.error( error );
+      } );
+
+      },
+      /**
+       *  Destroy editor instance
+       */
+      destroyEditor: function() {
+        if(this._editor) {
+          this._editor.destroy();
+        }
+      },
+      attached: function() {
+        this.initializeEditor();
+      },
+      detached: function() {
+        this.destroyEditor();
+      }
+    });
+  </script>
+</dom-module>
