@@ -14,7 +14,9 @@ npm install
 bower install
 ```
 
-## Polymer widget demo
+## Demonstrations
+
+### Polymer widget demo
 
 This demo uses the ckeditor5 classic build and provides ckeditor as a global via a script include:
 
@@ -33,6 +35,31 @@ This component uses dist/styles.css to provide css for the component. It is gene
 Run `polymer serve` and view the page at http://127.0.0.1:8000/demo/index.html
 
 You'll see that the ckeditor widget 
+
+### Shady DOM widget demo
+
+This demo shows how to use ckeditor within a Polymer web component. It copies the template to a div outside the shadow DOM
+
+```
+let template = this.shadowRoot.querySelector('#special-template');
+        document.querySelector("#content").appendChild(document.importNode(template.content, true));
+ ```
+
+Ckeditor5 works in this demo because it uses the technique described here: https://www.polymer-project.org/2.0/docs/devguide/dom-template#preserve-template-contents
+
+```
+<template id="special-template" preserve-content>
+          <textarea id="editor" hidden></textarea>
+    </template>
+```    
+
+Adding the preserve-content attribute to the template enables the code to access the contents of a nested template.
+ 
+View demo at http://127.0.0.1:8082/demo/index-shady.html
+
+### Vanilla ckeditor5 demo
+
+Finally, there is a demo of ckeditor5 running in the normal DOM at http://127.0.0.1:8000/demo/index-build.html. See the Development section for nore information.
 
 ## Usage
 

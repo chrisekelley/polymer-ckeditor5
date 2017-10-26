@@ -1,0 +1,72 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<script src="../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+
+<!--
+`polymer-ckeditor5`
+ckeditor5 input type
+
+@demo demo/index.html
+-->
+
+<dom-module id="polymer-ckeditor5">
+  <link rel="import" type="css" href="dist/styles.css">
+  <template>
+    <template id="special-template" preserve-content>
+          <textarea id="editor" hidden></textarea>
+    </template>
+
+  </template>
+
+  <script>
+    class PolymerCkeditor5 extends Polymer.Element {
+
+      static get is() { return  'polymer-ckeditor5' }
+
+      connectedCallback() {
+        super.connectedCallback();
+        console.log('my-element created!');
+        ClassicEditor
+        //          .create( this.$.editor )
+        //          .create( this.shadowRoot.querySelector("#editor") )
+          .create( window.document.querySelector("#editor") )
+          .then( editor => {
+            this._editor = editor;
+            console.log( editor );
+            this._editor = editor;
+          } )
+          .catch( error => {
+            console.error( error );
+          } );
+      }
+
+      ready() {
+        super.ready();
+        // retrieve the nested template
+        let template = this.shadowRoot.querySelector('#special-template');
+        document.querySelector("#content").appendChild(document.importNode(template.content, true));
+      }
+
+      created() {
+        console.log(this.localName + '#' + this.id + ' was created');
+      }
+
+      attached() {
+        super.attached();
+        console.log(this.localName + '#' + this.id + ' was attached');
+
+      }
+
+      detached() {
+        console.log(this.localName + '#' + this.id + ' was detached');
+      }
+
+      attributeChanged(name, type) {
+        console.log(this.localName + '#' + this.id + ' attribute ' + name +
+          ' was changed to ' + this.getAttribute(name));
+      }
+    }
+
+    customElements.define(PolymerCkeditor5.is, PolymerCkeditor5);
+  </script>
+</dom-module>
