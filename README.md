@@ -59,7 +59,7 @@ View demo at http://127.0.0.1:8082/demo/index-shady.html
 
 ### Vanilla ckeditor5 demo
 
-Finally, there is a demo of ckeditor5 running in the normal DOM at http://127.0.0.1:8000/demo/index-build.html. See the Development section for nore information.
+Finally, there is a demo of ckeditor5 running in the normal DOM at http://127.0.0.1:8000/demo/index-build.html. See the Development section for more information.
 
 ## Usage
 
