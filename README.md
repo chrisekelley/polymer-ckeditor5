@@ -34,7 +34,23 @@ This component uses dist/styles.css to provide css for the component. It is gene
 
 Run `polymer serve` and view the page at http://127.0.0.1:8000/demo/index.html
 
-You'll see that the ckeditor widget 
+You'll see that the ckeditor widget doesn't work properly, but it does an initial render. See the js console to view the errors it generates. Samples:
+
+```
+log.js:72 rect-source-not-in-dom: The source of this rect does not belong to any rendered DOM tree. Read more: https://ckeditor5.github.io/docs/nightly/ckeditor5/latest/framework/guides/support/error-codes.html#rect-source-not-in-dom.
+
+getborderwidths.js:21 Uncaught TypeError: Failed to execute 'getComputedStyle' on 'Window': parameter 1 is not of type 'Element'.
+    at t.a (getborderwidths.js:21)
+    at u.excludeScrollbarsAndBorders (rect.js:327)
+    at i (scroll.js:181)
+    at n (scroll.js:50)
+    at _.scrollToTheSelection (document.js:313)
+    at _.listenTo (enter.js:40)
+    at _.fire (emittermixin.js:280)
+    at _.e.on (enterobserver.js:25)
+    at _.fire (emittermixin.js:280)
+    at i.fire (domeventobserver.js:96)
+```    
 
 ### Shady DOM widget demo
 
